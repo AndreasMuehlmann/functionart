@@ -1,9 +1,14 @@
 extern crate raster;
+
 use raster::Image;
 use raster::Color;
+
 use raster::editor;
 use raster::BlendMode;
 use raster::PositionMode;
+
+use raster::transform;
+use raster::TransformMode;
 
 mod functions;
 mod to_rgb;
@@ -46,11 +51,12 @@ fn main() {
 
     save_image(rgbs, width, height);
 
-    let image1 = raster::open("results/fancy.png").unwrap();
-    let image2 = raster::open("results/disk_of_nothingness.png").unwrap();
+    let image1 = raster::open("results/functionart_blended.png").unwrap();
+    let mut image2 = raster::open("results/wave_war.png").unwrap();
+    transform::flip(&mut image2, TransformMode::Vertical).unwrap();
 
-    let image3 = editor::blend(&image1, &image2, BlendMode::Multiply, 0.3, PositionMode::Center, 0, 0).unwrap();
-    raster::save(&image3, "results/blended.png").unwrap();
+    let image3 = editor::blend(&image1, &image2, BlendMode::Difference, 0.3, PositionMode::Center, 0, 0).unwrap();
+    raster::save(&image3, "results/functionart_blended.png").unwrap();
 }
 
 fn save_image(rgbs: Vec<(u8, u8, u8)>, width: i32, height: i32) {
@@ -65,5 +71,5 @@ fn save_image(rgbs: Vec<(u8, u8, u8)>, width: i32, height: i32) {
             count += 1;
         }
     }
-    raster::save(&canvas, "results/functionart_test.png").unwrap();
+    raster::save(&canvas, "results/functionart_result.png").unwrap();
 }
