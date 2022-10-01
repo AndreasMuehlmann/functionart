@@ -1,7 +1,10 @@
 # functionart
-A program that generates pictures from functions
+A program that generates pictures from functions.
+
+![alt text](https://github.com/AndreasMuehlmann/functionart/blob/main/results/another_universe.png)
 
 Author: Andreas Mühlmann
+
 GitHub repository: "https://github.com/AndreasMuehlmann/functionart"
 
 # Quickstart
@@ -33,3 +36,4 @@ The size of the picture can be changed in "src/main.rs"
 
 You can also try other features of the raster module to 
 for example blend or transform your pictures.
+
