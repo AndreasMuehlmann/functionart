@@ -13,10 +13,12 @@ use raster::TransformMode;
 mod functions;
 mod to_rgb;
 
+// return  100.0 + 200.0 * x.sin() + 200.0 * y.cos() + (x + 100.0) * 5.0; 
+// return  180.0 + x.tan() + 100.0 * y.sin() + (x + 10.0) * 20.0; 
 
 fn main() {
-    let width: i32 = 1000;
-    let height: i32 = 1000;
+    let width: i32 = 10000;
+    let height: i32 = 10000;
 
     let mut wavelengths: Vec<f64> = Vec::new();
     let wave_func = functions::WavelengthFunction::new();
@@ -51,11 +53,11 @@ fn main() {
 
     save_image(rgbs, width, height);
 
-    let image1 = raster::open("results/functionart_blended.png").unwrap();
-    let mut image2 = raster::open("results/wave_war.png").unwrap();
+    let image1 = raster::open("results/sin_cos.png").unwrap();
+    let mut image2 = raster::open("results/sin_tan_lin.png").unwrap();
     transform::flip(&mut image2, TransformMode::Vertical).unwrap();
 
-    let image3 = editor::blend(&image1, &image2, BlendMode::Difference, 0.3, PositionMode::Center, 0, 0).unwrap();
+    let image3 = editor::blend(&image1, &image2, BlendMode::Screen, 0.3, PositionMode::Center, 0, 0).unwrap();
     raster::save(&image3, "results/functionart_blended.png").unwrap();
 }
 

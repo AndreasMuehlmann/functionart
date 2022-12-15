@@ -1,3 +1,8 @@
+// return 350.0 + x.tan() + 100.0 * y.tan() + (x + 50.0) * 4.0; 
+// return 100.0 + 200.0 * x.sin() + 200.0 * y.cos() + (x + 100.0) * 5.0; 
+// return 180.0 + x.tan() + 100.0 * y.sin() + (x + 10.0) * 20.0; 
+// return 300.0 + 200.0 * x.sin() + 200.0 * y.cos(); 
+
 pub struct WavelengthFunction {
     vertical_interval: (f64, f64),
     horizontal_interval: (f64, f64),
@@ -22,7 +27,7 @@ impl WavelengthFunction {
     }
 
     pub fn get_result(&self, x: f64, y: f64) -> f64 {
-        return x.powf(2.0) * y; 
+        return 300.0 + 200.0 * x.sin() + 200.0 * y.cos(); 
     }
 }
 
@@ -50,7 +55,7 @@ impl IntensityFunction {
     }
 
     pub fn get_result(&self, x: f64, y: f64) -> f64 {
-        return 1.0; 
+        return 1.0;
     }
 }
 
