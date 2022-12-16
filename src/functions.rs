@@ -28,7 +28,7 @@ impl WavelengthFunction {
     }
 
     pub fn get_result(&self, _x: f64, _y: f64) -> f64 {
-        return 450.0 + 5.0 * (_x / 5.0).sin() - std::f64::consts::E.powf((_x * _x.cos()).ln()) + 5.0 * (_y / 5.0).sin() - std::f64::consts::E.powf((_y * _y.cos()).ln()); 
+        return 180.0 + 100.0 * _x.sin() + 100.0 * _y.cos() + (_x + 100.0) * 4.0; 
     }
 }
 
@@ -56,7 +56,7 @@ impl IntensityFunction {
     }
 
     pub fn get_result(&self, _x: f64, _y: f64) -> f64 {
-        return 1.0;
+        return (_x * 500.0).sin().abs() + (_y * 500.0).sin().abs();
     }
 }
 
@@ -84,6 +84,6 @@ impl SaturationFunction {
     }
 
     pub fn get_result(&self, _x: f64, _y: f64) -> f64 {
-        return 1.0; 
+        return (_x * 500.0).cos().abs() + (_y * 500.0).cos().abs(); 
     }
 }
