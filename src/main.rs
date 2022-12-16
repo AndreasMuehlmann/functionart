@@ -13,12 +13,10 @@ use raster::TransformMode;
 mod functions;
 mod to_rgb;
 
-// return  100.0 + 200.0 * x.sin() + 200.0 * y.cos() + (x + 100.0) * 5.0; 
-// return  180.0 + x.tan() + 100.0 * y.sin() + (x + 10.0) * 20.0; 
 
 fn main() {
-    let width: i32 = 10000;
-    let height: i32 = 10000;
+    let width: i32 = 1000;
+    let height: i32 = 1000;
 
     let mut wavelengths: Vec<f64> = Vec::new();
     let wave_func = functions::WavelengthFunction::new();
